@@ -1,0 +1,16 @@
+.container {
+    width: 1200px;
+}
+
+.container .animeContainer__title {
+    color: #fff;
+    text-align: center;
+    font-weight: 300;
+    margin-top: 2em;
+}
+
+@media(max-width: 600px) {
+    .container {
+        width: 100vw;
+    }
+}

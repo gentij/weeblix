@@ -1,0 +1,8 @@
+.App {
+    min-height: 100vh;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,10 @@
+.animeContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 10vh;
+}
+
+.animeContainer h1 {
+    padding-left: 12px;
+}
