@@ -5,11 +5,16 @@
     padding: 1em;
     margin: 1em 0;
     color: #fff;
+    cursor: pointer;
+    transition: transform .2s;
 }
 
 .animePoster .animePoster__animeTitle {
     font-size: 16px;
     font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .animePoster .animePoster__animeEpisode {
@@ -20,4 +25,8 @@
 .animePoster img {
     width: 100%;
     height: 100%;
+}
+
+.animePoster:hover {
+    transform: scale(1.05);
 }

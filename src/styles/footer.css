@@ -1,0 +1,23 @@
+footer {
+    height: 72px;
+    display: flex;
+    justify-content: center;
+    background-color: #111;
+}
+.footerContainer {
+    width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 12px;
+    color: #999;
+    font-weight: 200;
+}
+
+.footerContainer span {
+    color: #A21E2D;
+}
+
+.footerContainer button {
+    color: #A21E2D;
+}

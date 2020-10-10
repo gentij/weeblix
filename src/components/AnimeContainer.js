@@ -19,6 +19,14 @@ const AnimeContainer = () => {
             <AnimePoster />
             <AnimePoster />
             <AnimePoster />
+            <AnimePoster />
+            <AnimePoster />
+            <AnimePoster />
+            <AnimePoster />
+            <AnimePoster />
+            <AnimePoster />
+            <AnimePoster />
+            <AnimePoster />
         </div>
     )
 }

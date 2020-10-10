@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import '../styles/header.css'
 
@@ -11,6 +12,19 @@ const Header = () => {
             <div className="header__container">
                 <div className="header__left">
                     <h1>weeb<span>lix</span></h1>
+                    <nav>
+                        <ul>
+                            <li>
+                                <Link to="/">Home</Link>
+                            </li>
+                            <li>
+                                <Link to="/popular">Popular</Link>
+                            </li>
+                            <li>
+                                <Link to="/ongoing">Ongoing</Link>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
                 <div className="header__right">
                     <IconButton>

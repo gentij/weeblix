@@ -2,6 +2,7 @@ header {
     height: 72px;
     display: flex;
     justify-content: center;
+    background-color: #111;
 }
 
 .header__container {
@@ -13,6 +14,29 @@ header {
     color: #fff;
     padding-left: 12px;
     font-size: 13px;
+}
+
+.header__container .header__left {
+    display: flex;
+    justify-content: space-between;
+    width: 250px;
+}
+
+.header__container .header__left nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__container .header__left nav ul li {
+    display: inline;
+    list-style: none;
+    margin: 1em;
+}
+
+.header__container .header__left nav ul li a {
+    color: #fff;
+    text-decoration: none;
 }
 
 .header__container h1 {
@@ -34,4 +58,10 @@ header {
 
 .header__container .header__right button svg {
     font-size: 40px;
+}
+
+@media(max-width: 700px) {
+    .header__container .header__right button p {
+        display: none;
+    }
 }
