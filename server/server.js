@@ -7,56 +7,16 @@ const app = express();
 
 app.use(cors());
 
-let recentEpisodes;
-let recentlyAddedSeries;
-let ongoing;
-
-const getRecentEpisodes = () => {
-    api.recentReleaseEpisodes(1)
+app.get('/RecentReleaseEpisodes/:page', (req, res) => {
+    api.recentReleaseEpisodes(req.params['page'])
     .then(result => {
-        recentEpisodes = result
+        res.status(200).json(result)
     })
     .catch(err => {
-        recentEpisodes = err
+        res.status(500).json(err)
     })
-}
-
-const getRecentSeries = () => {
-    api.recentlyAddedSeries(1)
-    .then(result => {
-        recentlyAddedSeries = result
-    })
-    .catch(err => {
-        recentlyAddedSeries = err
-    })
-}
-
-const getOngoing = () => {
-    api.ongoingSeries()
-    .then(result => {
-        ongoing = result
-    })
-    .catch(err => {
-        ongoing = err
-    })
-}
-
-getRecentEpisodes()
-getRecentSeries()
-getOngoing()
-
-
-app.get('/RecentReleaseEpisodes', (req, res) => {
-    res.status(200).json(recentEpisodes);
 });
 
-app.get('/RecentlyAddedSeries', (req, res) => {
-    res.status(200).json(recentEpisodes);
-});
-
-app.get('/Ongoing', (req, res) => {
-    res.status(200).json(recentEpisodes);
-});
 
 app.get('/Movies/:page', (req, res) => {
     api.movies(req.params['page'])

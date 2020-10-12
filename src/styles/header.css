@@ -65,3 +65,8 @@ header {
         display: none;
     }
 }
+
+.header__container .header__left nav ul li .active {
+    color: #A21E2D;
+    font-weight: 900;
+}

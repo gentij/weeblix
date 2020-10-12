@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 import '../styles/header.css'
 
@@ -7,6 +7,8 @@ import IconButton from '@material-ui/core/IconButton'
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 
 const Header = () => {
+    let route = useLocation().pathname
+
     return (
         <header>
             <div className="header__container">
@@ -15,13 +17,13 @@ const Header = () => {
                     <nav>
                         <ul>
                             <li>
-                                <Link to="/">Home</Link>
+                                <Link to="/" className={route === '/' ? 'active' : ''}>Home</Link>
                             </li>
                             <li>
-                                <Link to="/popular">Popular</Link>
+                                <Link to="/popular" className={route === '/popular' ? 'active' : ''}>Popular</Link>
                             </li>
                             <li>
-                                <Link to="/movies">Movies</Link>
+                                <Link to="/movies" className={route === '/movies' ? 'active' : ''}>Movies</Link>
                             </li>
                         </ul>
                     </nav>

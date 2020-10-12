@@ -27,6 +27,13 @@
     height: 100%;
 }
 
+.animePoster .loader {
+    height: 100%;
+    width: 100%;
+    padding: 3em;
+    background-color: #111;
+}
+
 .animePoster:hover {
     transform: scale(1.05);
 }
