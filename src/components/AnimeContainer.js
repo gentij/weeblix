@@ -4,29 +4,23 @@ import AnimePoster from './AnimePoster'
 
 import '../styles/animeContainer.css'
 
-const AnimeContainer = () => {
+const AnimeContainer = ({ data }) => {
     return (
         <div className="animeContainer">
-            <AnimePoster />
-            <AnimePoster />
-            <AnimePoster />
-            <AnimePoster />
-            <AnimePoster />
-            <AnimePoster />
-            <AnimePoster />
-            <AnimePoster />
-            <AnimePoster />
-            <AnimePoster />
-            <AnimePoster />
-            <AnimePoster />
-            <AnimePoster />
-            <AnimePoster />
-            <AnimePoster />
-            <AnimePoster />
-            <AnimePoster />
-            <AnimePoster />
-            <AnimePoster />
-            <AnimePoster />
+            {
+                data ? (
+                    data.map((anime, index) => (
+                        <AnimePoster 
+                            key = {index}
+                            title = {anime.title}
+                            image = {anime.img}
+                            episode = {anime.episode}
+                        />
+                    ))
+                ) : (
+                    <h1>Loading</h1>
+                )
+            }
         </div>
     )
 }

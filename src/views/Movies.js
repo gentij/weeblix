@@ -1,26 +1,26 @@
 import React, { useState, useEffect } from 'react'
 
-import { getPopular } from '../axios'
+import { getMovies } from '../axios'
 
 import AnimeContainer from '../components/AnimeContainer'
 
 import '../styles/home.css'
 
-const Popular = () => {
-    const [popular, setPopular] = useState('')
+const Movies = () => {
+    const [movies, setMovies] = useState('')
 
     useEffect(() => {
-        getPopular(1, setPopular)
+        getMovies(1, setMovies)
     }, [])
 
     return (
         <div className="container">
             <div className="animeContainer__wrapper">
-                <h3 className="animeContainer__title">Popular series</h3>
-                <AnimeContainer data = {popular.data}/>
+                <h3 className="animeContainer__title">Movies</h3>
+                <AnimeContainer data = {movies.data}/>
             </div>
         </div>
     )
 }
 
-export default Popular
+export default Movies
