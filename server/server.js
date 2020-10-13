@@ -38,6 +38,16 @@ app.get('/Popular/:page', (req, res) => {
     })
 });
 
+app.get('/Search/:title', (req, res) => {
+    api.search(req.params['title'])
+    .then(result => {
+        res.status(200).json(result);
+    })
+    .catch(err => {
+        res.status(500).json(err)
+    })
+});
+
 app.listen(port, () => {
     console.log(`App listening on port ${port}`)
 });

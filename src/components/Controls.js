@@ -8,7 +8,7 @@ import '../styles/controls.css'
 
 const Controls = ({ page, setPage, isLoading }) => {
     const prev = () => {
-        if(!(page == 1 || isLoading)) {
+        if(!(page === 1 || isLoading)) {
             setPage(page - 1)
         }
     }
@@ -22,7 +22,7 @@ const Controls = ({ page, setPage, isLoading }) => {
     return (
         <div className="controls">
             <IconButton
-                 disabled = {page == 1 || isLoading ? true : false}
+                 disabled = {page === 1 || isLoading ? true : false}
                  onClick={() => prev()}
             >
                 <ArrowBackIosIcon/>

@@ -39,8 +39,21 @@ const getMovies = (id, method, loading) => {
         })
 }
 
+const search = (search, method, loading) => {
+    axios
+        .get(`${baseURL}/Search/${search}`)
+        .then(res => {
+            method(res);
+            loading(false);
+        })
+        .catch(err => {
+            method(err)
+        })
+}
+
 export { 
     getRecentEpisodes,
     getPopular,
     getMovies,
+    search,
 }

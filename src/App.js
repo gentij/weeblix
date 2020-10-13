@@ -11,6 +11,7 @@ import Footer from './components/Footer'
 import Home from './views/Home'
 import Popular from './views/Popular'
 import Movies from './views/Movies'
+import Search from './views/Search'
 import NotFoundPage from './views/NotFoundPage'
 
 import './styles/app.css'
@@ -22,6 +23,7 @@ function App() {
         <Header />
         <main>
           <Switch>
+            <Route path="/search" component={Search} exact></Route>
             <Route path="/movies" component={Movies} exact></Route>
             <Route path="/popular" component={Popular} exact></Route>
             <Route path="/" component={Home} exact></Route>

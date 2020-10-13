@@ -18,7 +18,7 @@ const AnimeContainer = ({ data }) => {
                         />
                     ))
                 ) : (
-                    <h1>Loading</h1>
+                    false
                 )
             }
         </div>

@@ -51,6 +51,10 @@ header {
     color: #777;
 }
 
+.header__container .header__right a {
+    text-decoration: none;
+}
+
 .header__container .header__right button p {
     margin-right: .5em;
     font-size: 20px;
@@ -69,4 +73,8 @@ header {
 .header__container .header__left nav ul li .active {
     color: #A21E2D;
     font-weight: 900;
+}
+
+.header__container .header__right .active {
+    color: #A21E2D;
 }

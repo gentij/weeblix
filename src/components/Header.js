@@ -29,10 +29,12 @@ const Header = () => {
                     </nav>
                 </div>
                 <div className="header__right">
-                    <IconButton>
-                        <p>search...</p>
-                        <SearchOutlinedIcon />
-                    </IconButton>
+                    <Link to="/search">
+                        <IconButton className={route === '/search' ? 'active' : ''}>
+                            <p>search...</p>
+                            <SearchOutlinedIcon />
+                        </IconButton>
+                    </Link>
                 </div>
             </div>
         </header>
