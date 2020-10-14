@@ -11,26 +11,26 @@ import Controls from '../components/Controls'
 import '../styles/home.css'
 
 const Popular = () => {
-    let { id } = useParams()
-    let pageIndex = id.split('=')
+    let params = useParams().id
+    const [pageIndex, setPageIndex] = useState(Number(params))
 
     const [popular, setPopular] = useState('')
-    const [page, setPage] = useState(Number(pageIndex[0]))
 
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
+        setPageIndex(Number(params))
         setLoading(true)
-        getPopular(page, setPopular, setLoading)
-    }, [page])
+        getPopular(Number(params), setPopular, setLoading)
+    }, [params])
 
     return (
         <div className="container">
             <div className="animeContainer__wrapper">
                 <h3 className="animeContainer__title">Popular series</h3>
                 <Controls 
-                    page = {page} 
-                    setPage = {setPage} 
+                    page = {pageIndex} 
+                    setPage = {setPageIndex} 
                     isLoading = {loading}
                 />
                 {

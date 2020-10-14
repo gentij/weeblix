@@ -11,8 +11,6 @@ import '../styles/controls.css'
 const Controls = ({ page, setPage, isLoading }) => {
     let [route] = useLocation().pathname.split("=")
 
-    console.log(route);
-
     const prev = () => {
         if(!(page === 1 || isLoading)) {
             setPage(page - 1)

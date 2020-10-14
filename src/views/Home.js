@@ -11,28 +11,27 @@ import Controls from '../components/Controls'
 import '../styles/home.css'
 
 const Home = () => {
-    let { id } = useParams()
-    let pageIndex = id.split('=')
 
-    console.log(Number(pageIndex[0]));
+    let params = useParams().id
+    const [pageIndex, setPageIndex] = useState(Number(params))
+
 
     const [recentEpisodes, setRecentEpisodes] = useState('')
-    const [page, setPage] = useState(Number(pageIndex[0]));
-
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
+        setPageIndex(Number(params))
         setLoading(true)
-        getRecentEpisodes(page, setRecentEpisodes, setLoading)
-    }, [page])
+        getRecentEpisodes(Number(params), setRecentEpisodes, setLoading)
+    }, [params])
 
     return (
         <div className="container">
             <div className="animeContainer__wrapper">
                 <h3 className="animeContainer__title">Recent episodes</h3>
                 <Controls 
-                    page = {page} 
-                    setPage = {setPage} 
+                    page = {pageIndex} 
+                    setPage = {setPageIndex} 
                     isLoading = {loading}
                 />
                 {
