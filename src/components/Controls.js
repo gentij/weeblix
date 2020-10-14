@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Link, useLocation } from 'react-router-dom'
+
 import IconButton from '@material-ui/core/IconButton'
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
@@ -7,6 +9,10 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import '../styles/controls.css'
 
 const Controls = ({ page, setPage, isLoading }) => {
+    let [route] = useLocation().pathname.split("=")
+
+    console.log(route);
+
     const prev = () => {
         if(!(page === 1 || isLoading)) {
             setPage(page - 1)
@@ -22,17 +28,21 @@ const Controls = ({ page, setPage, isLoading }) => {
     return (
         <div className="controls">
             <IconButton
-                 disabled = {page === 1 || isLoading ? true : false}
-                 onClick={() => prev()}
+                disabled = {page === 1 || isLoading ? true : false}
+                onClick={() => prev()}
             >
-                <ArrowBackIosIcon/>
+                <Link to={`${route}=${page - 1}`} className={page === 1 || isLoading ? 'inactive' : false}>
+                    <ArrowBackIosIcon/>
+                </Link>
             </IconButton>
             <p>{ page }</p>
-            <IconButton 
+            <IconButton
                 disabled = {isLoading ? true : false}
                 onClick={() => next()}
             >
-                <ArrowForwardIosIcon />
+                <Link to={`${route}=${page + 1}`} className={isLoading ? 'inactive' : false}>
+                    <ArrowForwardIosIcon/>
+                </Link>
             </IconButton>
         </div>
     )

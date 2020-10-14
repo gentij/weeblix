@@ -4,6 +4,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect
 } from "react-router-dom";
 
 import Header from './components/Header'
@@ -12,9 +13,10 @@ import Home from './views/Home'
 import Popular from './views/Popular'
 import Movies from './views/Movies'
 import Search from './views/Search'
+import Watch from './views/Watch'
 import NotFoundPage from './views/NotFoundPage'
 
-import './styles/app.css'
+import './styles/app.css'       
 
 function App() {
   return (
@@ -23,11 +25,15 @@ function App() {
         <Header />
         <main>
           <Switch>
-            <Route path="/search" component={Search} exact></Route>
-            <Route path="/movies" component={Movies} exact></Route>
-            <Route path="/popular" component={Popular} exact></Route>
-            <Route path="/" component={Home} exact></Route>
-            <Route component={NotFoundPage} />
+            <Route path="/watch/page=:id" component={Watch}></Route>
+            <Route path="/search/page=:id" component={Search}></Route>
+            <Route path="/movies/page=:id" component={Movies}></Route>
+            <Route path="/popular/page=:id" component={Popular}></Route>
+            <Route path="/home/page=:id" component={Home} exact></Route>
+            <Route path="/"> 
+              <Redirect to="/home/page=1" />
+            </Route>
+            <Route path="*" component={NotFoundPage} />
           </Switch>
         </main>
         <Footer />

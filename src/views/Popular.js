@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 
 import { getPopular } from '../axios'
 
+import { useParams } from 'react-router-dom'
+
 import AnimeContainer from '../components/AnimeContainer'
 import LoaderContainer from '../components/Loader/LoaderContainer'
 import Controls from '../components/Controls'
@@ -9,8 +11,11 @@ import Controls from '../components/Controls'
 import '../styles/home.css'
 
 const Popular = () => {
+    let { id } = useParams()
+    let pageIndex = id.split('=')
+
     const [popular, setPopular] = useState('')
-    const [page, setPage] = useState(1)
+    const [page, setPage] = useState(Number(pageIndex[0]))
 
     const [loading, setLoading] = useState(true)
 

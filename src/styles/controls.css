@@ -7,6 +7,13 @@
     color: #777;
 }
 
-.controls button {
+.controls button a{
     color: #A21E2D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.controls button .inactive {
+    color: #000;
 }
