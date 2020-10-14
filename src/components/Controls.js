@@ -29,7 +29,7 @@ const Controls = ({ page, setPage, isLoading }) => {
                 disabled = {page === 1 || isLoading ? true : false}
                 onClick={() => prev()}
             >
-                <Link to={`${route}=${page - 1}`} className={page === 1 || isLoading ? 'inactive' : false}>
+                <Link to={`${route}=${page - 1}`} className={page === 1 || isLoading ? 'inactive' : ''}>
                     <ArrowBackIosIcon/>
                 </Link>
             </IconButton>
@@ -38,7 +38,7 @@ const Controls = ({ page, setPage, isLoading }) => {
                 disabled = {isLoading ? true : false}
                 onClick={() => next()}
             >
-                <Link to={`${route}=${page + 1}`} className={isLoading ? 'inactive' : false}>
+                <Link to={`${route}=${page + 1}`} className={isLoading ? 'inactive' : ''}>
                     <ArrowForwardIosIcon/>
                 </Link>
             </IconButton>

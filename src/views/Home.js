@@ -11,7 +11,6 @@ import Controls from '../components/Controls'
 import '../styles/home.css'
 
 const Home = () => {
-
     let params = useParams().id
     const [pageIndex, setPageIndex] = useState(Number(params))
 

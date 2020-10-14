@@ -25,7 +25,7 @@ function App() {
         <Header />
         <main>
           <Switch>
-            <Route path="/watch/page=:id" component={Watch}></Route>
+            <Route path="/watch/:title" component={Watch}></Route>
             <Route path="/search/page=:id" component={Search}></Route>
             <Route path="/movies/page=:id" component={Movies}></Route>
             <Route path="/popular/page=:id" component={Popular}></Route>
