@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
 import { search } from '../axios'
 import AnimeContainer from '../components/AnimeContainer'

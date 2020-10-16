@@ -54,9 +54,6 @@
 .anime__episodes__container div {
     width: 60px;
     height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .anime__episodes__container div button {

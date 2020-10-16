@@ -51,9 +51,22 @@ const search = (search, method, loading) => {
         })
 }
 
+const animeEpisodeHandler = (episode, method, loading) => {
+    axios
+        .get(`${baseURL}/AnimeEpisodeHandler/${episode}`)
+        .then(res => {
+            method(res);
+            loading(false);
+        })
+        .catch(err => {
+            method(err)
+        })
+}
+
 export { 
     getRecentEpisodes,
     getPopular,
     getMovies,
     search,
+    animeEpisodeHandler
 }

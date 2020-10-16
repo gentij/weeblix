@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 
 import { useParams } from 'react-router-dom'
 
+import { Link } from 'react-router-dom'
+
 import ReactLoading from 'react-loading';
 
 import { search } from '../axios'
@@ -18,11 +20,12 @@ const Anime = () => {
         search(params, setAnime, setIsLoading)
     }, [params])
 
+    console.log(params);
     console.log(anime);
     return (
         <div className="container">
             {
-                anime ? (
+                !isLoading ? (
                     <>
                     <div className="anime__info__wrapper">
                         <img src={anime.data[0].img} alt=""/>
@@ -48,8 +51,10 @@ const Anime = () => {
                         <div className="anime__episodes__container">
                             {
                                 anime.data[0].episodes.map((element, index) => (
-                                    <div>
-                                        <button key={index}>{ index + 1 }</button>
+                                    <div key={index}>
+                                        <Link to={`/watch/${element.id}`}>
+                                            <button>{ index + 1 }</button>
+                                        </Link>
                                     </div>
                                 ))
                             }

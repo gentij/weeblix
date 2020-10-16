@@ -48,6 +48,17 @@ app.get('/Search/:title', (req, res) => {
     })
 });
 
+app.get('/AnimeEpisodeHandler/:episode', (req, res) => {
+    api.animeEpisodeHandler(req.params['episode'])
+    .then(result => {
+        res.status(200).json(result);
+    })
+    .catch(err => {
+        res.status(500).json(err)
+    })
+});
+
 app.listen(port, () => {
     console.log(`App listening on port ${port}`)
 });
+
