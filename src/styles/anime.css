@@ -1,0 +1,76 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.anime__info__wrapper {
+    width: 100%;
+    display: flex;
+    padding: 3em;
+    color: #788B84;
+}
+
+.anime__info__wrapper img {
+    height: 330px;
+    width: 230px;
+}
+
+.anime__info__wrapper .anime__info {
+    padding: 1em 0 0 2.5em;
+}
+
+.anime__info__title {
+    color: #f8f8f8;
+}
+
+.anime__info__genres {
+    margin: 1em 0;
+    display: flex;
+}
+
+.anime__info__genres p{
+    margin-right: 2em;
+}
+
+.anime__episodes {
+    width: 100%;
+    padding: 0 3em 3em 3em;
+    color: #788B84;
+}
+
+.anime__episodes h2 {
+    font-weight: 300;
+    margin-bottom: 1em;
+}
+
+.anime__episodes__container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.anime__episodes__container div {
+    width: 60px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.anime__episodes__container div button {
+    width: 50px;
+    height: 30px;
+    background-color: #221F1F;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    color: #788B84;
+    cursor: pointer;
+}
+
+.anime__episodes__container div button:hover {
+    background-color: #444040;
+}
+

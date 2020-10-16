@@ -6,7 +6,7 @@ import '../styles/animePoster.css'
 
 const AnimePoster = ({ title, image, episode}) => {
     return (
-        <Link to={`/watch/${title}`}>
+        <Link to={`/anime/${title}`}>
             <div className="animePoster">
                 <img src={ image } alt=""/>
                 <div className="animePoster__title">

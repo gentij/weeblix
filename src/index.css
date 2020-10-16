@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  user-select: none;
 }
 
 body {
@@ -11,6 +10,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://i.pinimg.com/originals/85/1a/d0/851ad08f00ff74c09f0248854534e684.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 code {

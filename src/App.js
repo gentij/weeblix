@@ -13,7 +13,7 @@ import Home from './views/Home'
 import Popular from './views/Popular'
 import Movies from './views/Movies'
 import Search from './views/Search'
-import Watch from './views/Watch'
+import Anime from './views/Anime'
 import NotFoundPage from './views/NotFoundPage'
 
 import './styles/app.css'       
@@ -25,7 +25,7 @@ function App() {
         <Header />
         <main>
           <Switch>
-            <Route path="/watch/:title" component={Watch}></Route>
+            <Route path="/anime/:title" component={Anime}></Route>
             <Route path="/search/page=:id" component={Search}></Route>
             <Route path="/movies/page=:id" component={Movies}></Route>
             <Route path="/popular/page=:id" component={Popular}></Route>
