@@ -44,58 +44,69 @@ const Watch = () => {
         }
     }
 
-    console.log(title);
+    console.log(episode);
     return (
         <div className="container">
             {
                 !isLoading ? (
                     <div className="episode__wrapper">    
                         <div className="anime__info__wrapper">
-                            <img src={episode.data[0].img} alt=""/>
-                            <div className="anime__info">
-                                <div className="anime__info__top">
-                                    <h3 className="anime__info__title">{ title }</h3>
-                                    <p>Released: { episode.data[0].released }</p>
-                                    <div className="anime__info__genres">
-                                        {
-                                            episode.data[0].genres.map((element, index) => (
-                                                <p key={index}>{element}</p>
-                                            ))
-                                        }
-                                    </div>
+                            <div className="anime__info__top">
+                                <img src={episode.data[0].img} alt=""/>
+                                <h3 className="anime__info__title">{ title.replace(/-/g, ' ') }</h3>
+                                <p>Released: { episode.data[0].released }</p>
+                                <div className="anime__info__genres">
+                                    {
+                                        episode.data[0].genres.map((element, index) => (
+                                            <p key={index}>{element}</p>
+                                        ))
+                                    }
                                 </div>
-                                <div className="anime__info__description">
-                                    <p>{ episode.data[0].synopsis }</p>
+                            </div>
+                            <div className="anime__info">
+                                <div className="controls">
+                                <IconButton
+                                    disabled = {episodeNumber === 1 || isLoading ? true : false}
+                                    onClick={() => prev()}
+                                >
+                                    <Link to={`${title}-episode-${episodeNumber - 1}`} className={episodeNumber === 1 || isLoading ? 'inactive' : ''}>
+                                        <ArrowBackIosIcon/>
+                                    </Link>
+                                </IconButton>
+                                    <p>Episode { episodeNumber }</p>
+                                <IconButton
+                                    disabled = {isLoading ? true : false}
+                                    onClick={() => next()}
+                                >
+                                    <Link to={`${title}-episode-${episodeNumber + 1}`} className={isLoading ? 'inactive' : ''}>
+                                        <ArrowForwardIosIcon/>
+                                    </Link>
+                                </IconButton>
+                                </div>
+                                <div className="iframe__wrapper">
+                                    <iframe 
+                                        src={`https://${episode.data[0].servers[0].iframe}`}
+                                        frameBorder="0" 
+                                        allowFullScreen
+                                        >
+                                    </iframe>
                                 </div>
                             </div>
                         </div>  
-                        <div className="controls">
-                        <IconButton
-                            disabled = {episodeNumber === 1 || isLoading ? true : false}
-                            onClick={() => prev()}
-                        >
-                            <Link to={`${title}-episode-${episodeNumber - 1}`} className={episodeNumber === 1 || isLoading ? 'inactive' : ''}>
-                                <ArrowBackIosIcon/>
-                            </Link>
-                        </IconButton>
-                            <p>Episode { episodeNumber }</p>
-                        <IconButton
-                            disabled = {isLoading ? true : false}
-                            onClick={() => next()}
-                        >
-                            <Link to={`${title}-episode-${episodeNumber + 1}`} className={isLoading ? 'inactive' : ''}>
-                                <ArrowForwardIosIcon/>
-                            </Link>
-                        </IconButton>
-                        </div>
-                        <div className="iframe__wrapper">
-                            <iframe 
-                                src={`https://${episode.data[0].servers[0].iframe}`}
-                                frameBorder="0" 
-                                allowFullScreen
-                                >
-                            </iframe>
-                        </div>
+                        <div className="anime__episodes">
+                                <h2>Episodes:</h2>
+                                <div className="anime__episodes__container">
+                                    {
+                                        [...Array(episode.data[0].totalEpisodes)].map((element, index) => (
+                                            <div key={index}>
+                                                <Link to={`${title}-episode-${index + 1}`}>
+                                                    <button>{ index + 1 }</button>
+                                                </Link>
+                                            </div>
+                                        ))
+                                    }
+                                </div>
+                            </div>
                     </div>
                 ) : (
                     <ReactLoading type="spin" className="loader" height="100px" width="100px" color="#A21E2D"/>

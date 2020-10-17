@@ -7,18 +7,10 @@
     align-items: center;
 }
 
-.episode__wrapper .iframe__wrapper {
-    width: 70vw;
-    padding: 2em 0;
-    height: fit-content;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-}
-
 iframe {
-    height: 65vh;
-    width: 80vw;
+    width: 700px;
+    height: 400px;
+    border: 5px solid #111;
 }
 
 h3 {

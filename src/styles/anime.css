@@ -21,6 +21,10 @@
     padding: 1em 0 0 2.5em;
 }
 
+.anime__info__top {
+    padding-top: 3em;
+}
+
 .anime__info__title {
     color: #f8f8f8;
 }
