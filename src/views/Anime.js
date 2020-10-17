@@ -20,8 +20,6 @@ const Anime = () => {
         search(params, setAnime, setIsLoading)
     }, [params])
 
-    console.log(params);
-    console.log(anime);
     return (
         <div className="container">
             {

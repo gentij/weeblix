@@ -8,17 +8,17 @@
 }
 
 .episode__wrapper .iframe__wrapper {
-    width: 1000px;
-    height: 600px;
+    width: 70vw;
+    padding: 2em 0;
+    height: fit-content;
     display: flex;
     justify-content: center;
     align-content: center;
 }
 
 iframe {
-    width: 900px;
-    height: 550px;
-    margin: auto 0;
+    height: 65vh;
+    width: 80vw;
 }
 
 h3 {

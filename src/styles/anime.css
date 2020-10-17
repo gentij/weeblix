@@ -6,10 +6,10 @@
 }
 
 .anime__info__wrapper {
-    width: 100%;
     display: flex;
     padding: 3em;
     color: #788B84;
+    width: 100%;
 }
 
 .anime__info__wrapper img {
@@ -28,6 +28,7 @@
 .anime__info__genres {
     margin: 1em 0;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .anime__info__genres p{
@@ -71,3 +72,20 @@
     background-color: #444040;
 }
 
+@media(max-width: 1200px) {
+    .container {
+        width: 90vw;
+        align-items: center;
+    }
+
+    .anime__info__wrapper {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .anime__info__wrapper .anime__info {
+        width: 100%;
+        padding: 2em 0;
+    }
+}
