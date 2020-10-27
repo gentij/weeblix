@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 import ReactLoading from 'react-loading';
 
-import { search } from '../axios'
+import { search, animeEpisodeHandler } from '../axios'
 
 import '../styles/anime.css'
 

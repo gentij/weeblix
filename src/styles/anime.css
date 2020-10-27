@@ -76,20 +76,39 @@
     background-color: #444040;
 }
 
+.iframeWrapper {
+    width: 100%;
+    padding: 0 3em 3em 3em;
+}
+
+iframe {
+    border: 5px solid #111;
+}
+
 @media(max-width: 1200px) {
     .container {
-        width: 90vw;
+        width: 100vw;
         align-items: center;
     }
 
     .anime__info__wrapper {
         flex-direction: column;
         align-items: center;
-        width: 100%;
+        width: 100vw;
+        padding: 1.2em;
+    }
+
+    .anime__info__wrapper img {
+        margin-top: 1.5em;
     }
 
     .anime__info__wrapper .anime__info {
         width: 100%;
-        padding: 2em 0;
+        padding: 0;
+    }
+
+    .anime__episodes {
+        padding: 1.2em;
+        margin-bottom: 1em;
     }
 }

@@ -14,7 +14,6 @@ import Popular from './views/Popular'
 import Movies from './views/Movies'
 import Search from './views/Search'
 import Anime from './views/Anime'
-import Watch from './views/Watch'
 import NotFoundPage from './views/NotFoundPage'
 
 import './styles/app.css'       
@@ -26,7 +25,6 @@ function App() {
         <Header />
         <main>
           <Switch>
-            <Route path="/watch/:episode" component={Watch}></Route>
             <Route path="/anime/:title" component={Anime}></Route>
             <Route path="/search/page=:id" component={Search}></Route>
             <Route path="/movies/page=:id" component={Movies}></Route>
