@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react'
 
 import { useParams } from 'react-router-dom'
 
-import { Link } from 'react-router-dom'
+import 'react-modal-video/scss/modal-video.scss';
+
+import ModalVideo from 'react-modal-video'
 
 import ReactLoading from 'react-loading';
 
@@ -11,15 +13,21 @@ import { search, animeEpisodeHandler } from '../axios'
 import '../styles/anime.css'
 
 const Anime = () => {
+    const [isOpen, setOpen] = useState(false)
+
     let params = useParams().title
     
     const [anime, setAnime] = useState()
+    const [playing, setPlaying] = useState()
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         search(params, setAnime, setIsLoading)
     }, [params])
 
+    const playEpisode = id => {
+        animeEpisodeHandler(id, setPlaying, setOpen)
+    }
     return (
         <div className="container">
             {
@@ -44,15 +52,20 @@ const Anime = () => {
                             </div>
                         </div>
                     </div>
+                    {
+                        playing ? (
+                            <ModalVideo channel='custom' url={`https://${playing.data[0].servers[0].iframe}`} autoplay isOpen={isOpen} onClose={() => setOpen(false)} />
+                        ) : (
+                            ''
+                        )
+                    }
                     <div className="anime__episodes">
                         <h2>Episodes:</h2>
                         <div className="anime__episodes__container">
                             {
                                 anime.data[0].episodes.map((element, index) => (
                                     <div key={index}>
-                                        <Link to={`/watch/${element.id}`}>
-                                            <button>{ index + 1 }</button>
-                                        </Link>
+                                        <button onClick={()=> playEpisode(element.id)}>{ index + 1 }</button>
                                     </div>
                                 ))
                             }

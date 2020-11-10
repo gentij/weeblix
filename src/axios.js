@@ -51,11 +51,14 @@ const search = (search, method, loading) => {
         })
 }
 
-const animeEpisodeHandler = (episode, method) => {
+const animeEpisodeHandler = (episode, method, modal) => {
     axios
         .get(`${baseURL}/AnimeEpisodeHandler/${episode}`)
         .then(res => {
             method(res);
+        })
+        .then(() => {
+            modal(true)
         })
         .catch(err => {
             method(err)

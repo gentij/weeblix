@@ -22,7 +22,7 @@
 }
 
 .anime__info__top {
-    padding-top: 3em;
+    padding-top: 1em;
 }
 
 .anime__info__title {
@@ -74,15 +74,6 @@
 
 .anime__episodes__container div button:hover {
     background-color: #444040;
-}
-
-.iframeWrapper {
-    width: 100%;
-    padding: 0 3em 3em 3em;
-}
-
-iframe {
-    border: 5px solid #111;
 }
 
 @media(max-width: 1200px) {
