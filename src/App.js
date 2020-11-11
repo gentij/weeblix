@@ -26,7 +26,7 @@ function App() {
         <main>
           <Switch>
             <Route path="/anime/:title" component={Anime}></Route>
-            <Route path="/search/page=:id" component={Search}></Route>
+            <Route path="/search" exact component={Search}></Route>
             <Route path="/movies/page=:id" component={Movies}></Route>
             <Route path="/popular/page=:id" component={Popular}></Route>
             <Route path="/home/page=:id" component={Home} exact></Route>

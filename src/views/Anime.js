@@ -28,6 +28,7 @@ const Anime = () => {
     const playEpisode = id => {
         animeEpisodeHandler(id, setPlaying, setOpen)
     }
+
     return (
         <div className="container">
             {
@@ -52,13 +53,7 @@ const Anime = () => {
                             </div>
                         </div>
                     </div>
-                    {
-                        playing ? (
-                            <ModalVideo channel='custom' url={`https://${playing.data[0].servers[0].iframe}`} autoplay isOpen={isOpen} onClose={() => setOpen(false)} />
-                        ) : (
-                            ''
-                        )
-                    }
+                    <ModalVideo channel='custom' url={playing ? `https://${playing.data[0].servers[0].iframe}` : ''} autoplay isOpen={isOpen} onClose={() => setOpen(false)} />
                     <div className="anime__episodes">
                         <h2>Episodes:</h2>
                         <div className="anime__episodes__container">
