@@ -15,6 +15,7 @@ const AnimeContainer = ({ data }) => {
                             title = {anime.title}
                             image = {anime.img}
                             episode = {anime.episode}
+                            released = {anime.released}
                         />
                     ))
                 ) : (

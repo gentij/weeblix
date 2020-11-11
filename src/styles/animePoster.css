@@ -17,7 +17,8 @@
     text-overflow: ellipsis;
 }
 
-.animePoster .animePoster__animeEpisode {
+.animePoster .animePoster__animeEpisode,
+.animePoster .animePoster__animeReleased {
     color: #777;
     font-size: 14px;
 }

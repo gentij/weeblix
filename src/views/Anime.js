@@ -14,6 +14,7 @@ import '../styles/anime.css'
 
 const Anime = () => {
     const [isOpen, setOpen] = useState(false)
+    let watchedEpisodes = document.querySelectorAll('.currentEpisode') || []
 
     let params = useParams().title
     
@@ -25,7 +26,14 @@ const Anime = () => {
         search(params, setAnime, setIsLoading)
     }, [params])
 
-    const playEpisode = id => {
+    const playEpisode = (e, id) => {
+        if(watchedEpisodes) {
+            watchedEpisodes.forEach(button => {
+                button.className = "watchedEpisode"
+            })
+        }
+        e.target.className = "currentEpisode"
+        console.log(watchedEpisodes);
         animeEpisodeHandler(id, setPlaying, setOpen)
     }
 
@@ -60,7 +68,7 @@ const Anime = () => {
                             {
                                 anime.data[0].episodes.map((element, index) => (
                                     <div key={index}>
-                                        <button onClick={()=> playEpisode(element.id)}>{ index + 1 }</button>
+                                        <button onClick={(e)=> playEpisode(e, element.id)}>{ index + 1 }</button>
                                     </div>
                                 ))
                             }

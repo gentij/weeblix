@@ -76,6 +76,18 @@
     background-color: #444040;
 }
 
+.anime__episodes__container div .currentEpisode {
+    background-color: #A21E2D;
+}
+
+.anime__episodes__container div .watchedEpisode {
+    background-color: #111;
+}
+
+.modal-video-close-btn {
+    cursor: pointer;
+}
+
 @media(max-width: 1200px) {
     .container {
         width: 100vw;
