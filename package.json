@@ -19,7 +19,8 @@
     "react-modal-video": "^1.2.6",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
-    "sass": "^1.29.0"
+    "sass": "^1.29.0",
+    "serverless-http": "^2.6.0"
   },
   "scripts": {
     "start": "react-scripts start",

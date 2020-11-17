@@ -1,13 +1,15 @@
 const express = require('express');
 const cors = require('cors');
+const serverless = require('serverless-http')
 const api = require('gogoanime-axios');
 
-const port = 8000;
 const app = express();
+
+const router = express.Router()
 
 app.use(cors());
 
-app.get('/RecentReleaseEpisodes/:page', (req, res) => {
+router.get('/RecentReleaseEpisodes/:page', (req, res) => {
     api.recentReleaseEpisodes(req.params['page'])
     .then(result => {
         res.status(200).json(result)
@@ -18,7 +20,7 @@ app.get('/RecentReleaseEpisodes/:page', (req, res) => {
 });
 
 
-app.get('/Movies/:page', (req, res) => {
+router.get('/Movies/:page', (req, res) => {
     api.movies(req.params['page'])
     .then(result => {
         res.status(200).json(result);
@@ -28,7 +30,7 @@ app.get('/Movies/:page', (req, res) => {
     })
 });
 
-app.get('/Popular/:page', (req, res) => {
+router.get('/Popular/:page', (req, res) => {
     api.popular(req.params['page'])
     .then(result => {
         res.status(200).json(result);
@@ -38,7 +40,7 @@ app.get('/Popular/:page', (req, res) => {
     })
 });
 
-app.get('/Search/:title', (req, res) => {
+router.get('/Search/:title', (req, res) => {
     api.search(req.params['title'])
     .then(result => {
         res.status(200).json(result);
@@ -48,7 +50,7 @@ app.get('/Search/:title', (req, res) => {
     })
 });
 
-app.get('/AnimeEpisodeHandler/:episode', (req, res) => {
+router.get('/AnimeEpisodeHandler/:episode', (req, res) => {
     api.animeEpisodeHandler(req.params['episode'])
     .then(result => {
         res.status(200).json(result);
@@ -58,7 +60,9 @@ app.get('/AnimeEpisodeHandler/:episode', (req, res) => {
     })
 });
 
-app.listen(port, () => {
-    console.log(`App listening on port ${port}`)
-});
+
+app.use('/.netlify/functions/server', router)
+
+module.exports.handler = serverless(app)
+
 
