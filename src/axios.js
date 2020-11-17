@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const baseURL = process.env.NODE_ENV === 'development' ? "http://localhost:8000" : "https://autopartshunter.com/.netlify/functions"
+const baseURL = process.env.NODE_ENV === 'development' ? "http://localhost:8000" : "https://weeblix.netlify.com/api"
 
 const getRecentEpisodes = (id, method, loading) => {
     axios
@@ -24,7 +24,7 @@ const getPopular = (id, method, loading) => {
         })
         .catch(err => {
             method(err)
-        })
+        })  
 }
 
 const getMovies = (id, method, loading) => {

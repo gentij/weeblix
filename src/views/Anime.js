@@ -33,7 +33,6 @@ const Anime = () => {
             })
         }
         e.target.className = "currentEpisode"
-        console.log(watchedEpisodes);
         animeEpisodeHandler(id, setPlaying, setOpen)
     }
 
@@ -76,7 +75,9 @@ const Anime = () => {
                     </div>
                     </>
                 ) : (
-                    <ReactLoading type="spin" className="loader" height="100px" width="100px" color="#A21E2D"/>
+                    <div className="loadingContainer">
+                        <ReactLoading type="spin" className="loader" height="100px" width="100px" color="#A21E2D"/>
+                    </div>
                 )
             }
         </div>

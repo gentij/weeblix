@@ -10,11 +10,18 @@ const Footer = () => {
 
     const year = date.getFullYear();
 
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        })
+    }
+
     return (
         <footer>
             <div className="footerContainer">
                 <p><span>weeb</span>lix | { year }</p>
-                <IconButton>
+                <IconButton onClick={() => scrollToTop()}>
                     <ArrowUpwardIcon />
                 </IconButton>
             </div>

@@ -17,7 +17,7 @@ const Header = () => {
                     <nav>
                         <ul>
                             <li>
-                                <Link to="/page=1" className={route === '/page' ? 'active' : ''}>Home</Link>
+                                <Link to="/home/page=1" className={route === '/home/page' ? 'active' : ''}>Home</Link>
                             </li>
                             <li>
                                 <Link to="/popular/page=1" className={route === '/popular/page' ? 'active' : ''}>Popular</Link>
