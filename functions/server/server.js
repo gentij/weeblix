@@ -1,5 +1,5 @@
 const express = require('express');
-const cors = require('cors');
+const cors =  require('cors')
 const serverless = require('serverless-http')
 const api = require('gogoanime-axios');
 
@@ -7,7 +7,7 @@ const app = express();
 
 const router = express.Router()
 
-app.use(cors());
+app.use(cors())
 
 router.get('/RecentReleaseEpisodes/:page', (req, res) => {
     api.recentReleaseEpisodes(req.params['page'])
