@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const baseURL = process.env.NODE_ENV === 'development' ? "http://localhost:8000" : "https://weeblix.netlify.com/api"
+const baseURL = process.env.NODE_ENV === 'development' ? "http://localhost:8888/.netlify/functions/server" : "https://weeblix.netlify.com/.netlify/functions/server"
 
 const getRecentEpisodes = (id, method, loading) => {
     axios
