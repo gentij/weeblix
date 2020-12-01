@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors')
 const serverless = require('serverless-http')
 const api = require('gogoanime-axios');
 
@@ -9,6 +10,8 @@ const headers = {
 };
 
 const app = express();
+
+app.use(cors())
 
 const router = express.Router()
 
