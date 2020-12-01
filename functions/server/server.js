@@ -10,8 +10,6 @@ const headers = {
 
 const app = express();
 
-app.use(cors())
-
 const router = express.Router()
 
 router.get('/RecentReleaseEpisodes/:page', (req, res) => {
@@ -70,12 +68,20 @@ app.use('/.netlify/functions/server', router)
 
 const handler = serverless(app);
 module.exports.handler = async (event, context) => {
-  const result = await handler(event, context);
-  return {
-    statusCode: 200,
-    headers,
-    body: result
-  };
+  try {
+    const result = await handler(event, context);
+    return {
+      statusCode: 200,
+      headers,
+      body: result.body
+    };
+  } catch (error) {
+    return {
+      statusCode: 500,
+      headers,
+      body: error
+    };
+  }
 };
 
 
