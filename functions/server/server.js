@@ -65,24 +65,7 @@ router.get('/AnimeEpisodeHandler/:episode', async (req, res) => {
 
 app.use('/.netlify/functions/server', router)
 
-const handler = serverless(app);
-module.exports.handler = async (event, context) => {
-  try {
-    const result = await handler(event, context);
-    console.log(result.headers);
-    return {
-      statusCode: 200,
-      headers,
-      body: result.body
-    };
-  } catch (error) {
-    return {
-      statusCode: 500,
-      headers,
-      body: error
-    };
-  }
-};
+module.exports.handler = serverless(app)
 
 
 
