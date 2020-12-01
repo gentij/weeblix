@@ -1,5 +1,4 @@
 const express = require('express');
-const cors = require('cors')
 const serverless = require('serverless-http')
 const api = require('gogoanime-axios');
 
@@ -11,8 +10,6 @@ const headers = {
 
 const app = express();
 
-app.use(cors())
-
 const router = express.Router()
 
 router.get('/RecentReleaseEpisodes/:page', async (req, res) => {
@@ -20,7 +17,7 @@ router.get('/RecentReleaseEpisodes/:page', async (req, res) => {
         let data = await api.recentReleaseEpisodes(req.params['page'])
         res.status(200).json(data)
     } catch (error) {
-        res.status(500).json(data)
+        res.status(500).json(error)
     }
 });
 
@@ -29,7 +26,7 @@ router.get('/Movies/:page', async (req, res) => {
         let data = await api.movies(req.params['page'])
         res.status(200).json(data)
     } catch (error) {
-        res.status(500).json(data)
+        res.status(500).json(error)
     }
 });
 
@@ -38,7 +35,7 @@ router.get('/Popular/:page', async (req, res) => {
         let data = await api.popular(req.params['page'])
         res.status(200).json(data)
     } catch (error) {
-        res.status(500).json(data)
+        res.status(500).json(error)
     }
 });
 
@@ -47,7 +44,7 @@ router.get('/Search/:title', async (req, res) => {
         let data = await api.search(req.params['title'])
         res.status(200).json(data)
     } catch (error) {
-        res.status(500).json(data)
+        res.status(500).json(error)
     }
 });
 
@@ -56,7 +53,7 @@ router.get('/AnimeEpisodeHandler/:episode', async (req, res) => {
         let data = await api.recentReleaseEpisodes(req.params['episode'])
         res.status(200).json(data)
     } catch (error) {
-        res.status(500).json(data)
+        res.status(500).json(error)
     }
 });
 
