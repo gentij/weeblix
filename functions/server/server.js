@@ -7,7 +7,7 @@ const app = express();
 
 const router = express.Router()
 
-router.all('*', cors())
+router.use(cors())
 
 router.get('/RecentReleaseEpisodes/:page', async (req, res) => {
     try {
@@ -17,7 +17,6 @@ router.get('/RecentReleaseEpisodes/:page', async (req, res) => {
         res.status(500).json(data)
     }
 });
-
 
 router.get('/Movies/:page', async (req, res) => {
     try {
