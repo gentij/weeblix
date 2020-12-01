@@ -1,7 +1,12 @@
 const express = require('express');
-const cors = require('cors')
 const serverless = require('serverless-http')
 const api = require('gogoanime-axios');
+
+const headers = {
+    'Access-Control-Allow-Headers': '*',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': '*'
+  };
 
 const app = express();
 
@@ -63,7 +68,15 @@ router.get('/AnimeEpisodeHandler/:episode', (req, res) => {
 
 app.use('/.netlify/functions/server', router)
 
-module.exports.handler = serverless(app)
+const handler = serverless(app);
+module.exports.handler = async (event, context) => {
+  const result = await handler(event, context);
+  return {
+    statusCode: 200,
+    headers,
+    body: result
+  };
+};
 
 
 
