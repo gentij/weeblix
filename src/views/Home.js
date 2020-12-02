@@ -4,6 +4,8 @@ import { getRecentEpisodes } from '../axios'
 
 import { useParams } from 'react-router-dom'
 
+import Grow from '@material-ui/core/Grow'
+
 import AnimeContainer from '../components/AnimeContainer'
 import LoaderContainer from '../components/Loader/LoaderContainer'
 import Controls from '../components/Controls'
@@ -25,6 +27,7 @@ const Home = () => {
     }, [params])
 
     return (
+        <Grow in="true">
         <div className="container">
             <div className="animeContainer__wrapper">
                 <h3 className="animeContainer__title">Recent episodes</h3>
@@ -44,6 +47,7 @@ const Home = () => {
                 }
             </div>
         </div>
+        </Grow>
     )
 }
 
