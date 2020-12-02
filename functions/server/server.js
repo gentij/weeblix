@@ -50,7 +50,7 @@ router.get('/Search/:title', async (req, res) => {
 
 router.get('/AnimeEpisodeHandler/:episode', async (req, res) => {
     try {
-        let data = await api.recentReleaseEpisodes(req.params['episode'])
+        let data = await api.animeEpisodeHandler(req.params['episode'])
         res.status(200).json(data)
     } catch (error) {
         res.status(500).json(error)
