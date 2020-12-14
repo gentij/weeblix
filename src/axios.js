@@ -5,11 +5,11 @@ const baseURL = process.env.NODE_ENV === 'development' ? "http://localhost:8888/
 const getRecentEpisodes = (id, method, loading) => {
     axios
         .get(`${baseURL}/RecentReleaseEpisodes/${id}`)
-        .then(res => {
-            method(res);
+        .then(async res => {
+            await method(res);
             loading(false)
         })
-        .catch(err => {
+        .catch(async err => {
             method(err)
         })
 }
@@ -18,50 +18,52 @@ const getRecentEpisodes = (id, method, loading) => {
 const getPopular = (id, method, loading) => {
     axios
         .get(`${baseURL}/Popular/${id}`)
-        .then(res => {
-            method(res);
+        .then(async res => {
+            await method(res);
             loading(false);
         })
-        .catch(err => {
-            method(err)
+        .catch(async err => {
+            await method(err)
+            loading(false);
         })  
 }
 
 const getMovies = (id, method, loading) => {
     axios
         .get(`${baseURL}/Movies/${id}`)
-        .then(res => {
-            method(res);
+        .then(async res => {
+            await method(res);
             loading(false)
         })
-        .catch(err => {
-            method(err)
+        .catch(async err => {
+            await method(err)
+            loading(false);
         })
 }
 
 const search = (search, method, loading) => {
     axios
         .get(`${baseURL}/Search/${search}`)
-        .then(res => {
-            method(res);
+        .then(async res => {
+            await method(res);
             loading(false);
         })
-        .catch(err => {
-            method(err)
+        .catch(async err => {
+            await method(err)
+            loading(false);
         })
 }
 
 const animeEpisodeHandler = (episode, method, modal) => {
     axios
         .get(`${baseURL}/AnimeEpisodeHandler/${episode}`)
-        .then(res => {
-            method(res);
-        })
-        .then(() => {
+        .then(async res => {
+            await method(res)
             modal(true)
         })
-        .catch(err => {
-            method(err)
+        .catch(async err => {
+            await method(err)
+            modal(true)
         })
 }
 

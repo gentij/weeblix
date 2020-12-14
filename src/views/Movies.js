@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 
 import { getMovies } from '../axios'
 
+import Grow from '@material-ui/core/Grow'
+
 import { useParams } from 'react-router-dom'
 
 import AnimeContainer from '../components/AnimeContainer'
@@ -24,6 +26,7 @@ const Movies = () => {
     }, [params])
 
     return (
+        <Grow in={true}>
         <div className="container">
             <div className="animeContainer__wrapper">
                 <h3 className="animeContainer__title">Movies</h3>
@@ -41,6 +44,7 @@ const Movies = () => {
                 }
             </div>
         </div>
+        </Grow>
     )
 }
 

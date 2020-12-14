@@ -4,6 +4,8 @@ import { search } from '../axios'
 import AnimeContainer from '../components/AnimeContainer'
 import LoadingContainer from '../components/Loader/LoaderContainer'
 
+import Grow from '@material-ui/core/Grow'
+
 import '../styles/search.css'
 
 import { Input } from '@material-ui/core';
@@ -26,28 +28,30 @@ const Search = () => {
     }
 
     return (
-        <div className="searchContainer">
-            <form onSubmit={searchAnime}>
-                <Input 
-                    id="search" 
-                    placeholder="search..."
-                    disableUnderline
-                    autoFocus
-                    value={ searchValue }
-                    onChange={ updateSearchValue }
-                />
-            </form>
-            <h2>Results:</h2>
-            {
-                isLoading ? (
-                    <LoadingContainer />
-                ) : (
-                    <AnimeContainer 
-                        data = {searchResults.data}
+        <Grow in={true}>
+            <div className="searchContainer">
+                <form onSubmit={searchAnime}>
+                    <Input 
+                        id="search" 
+                        placeholder="search..."
+                        disableUnderline
+                        autoFocus
+                        value={ searchValue }
+                        onChange={ updateSearchValue }
                     />
-                )
-            }
-        </div>
+                </form>
+                <h2>Results:</h2>
+                {
+                    isLoading ? (
+                        <LoadingContainer />
+                    ) : (
+                        <AnimeContainer 
+                            data = {searchResults.data}
+                        />
+                    )
+                }
+            </div>
+        </Grow>
     )
 }
 
